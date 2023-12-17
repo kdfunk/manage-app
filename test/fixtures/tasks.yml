@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manage: one
+  name: MyString
+  description: MyText
+  status: MyString
+  manage: MyString
+  references: MyString
+
+two:
+  manage: two
+  name: MyString
+  description: MyText
+  status: MyString
+  manage: MyString
+  references: MyString

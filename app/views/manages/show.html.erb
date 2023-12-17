@@ -1,0 +1,53 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @manage %>
+
+<div>
+  <%= link_to "Edit this manage", edit_manage_path(@manage) %> |
+  <%= link_to "Back to manages", manages_path %>
+
+  <%= button_to "Destroy this manage", @manage, method: :delete %>
+</div>
+<hr>
+
+<h1>New task</h1>
+
+<%= render 'tasks/form' %>
+
+<%= link_to 'Back', manage_tasks_path(@task.manage) %>
+
+<hr>
+
+<h1>Listing tasks</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Manage</th>
+    <th>References</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @manage.tasks.each do |task| %>
+<% if task.persisted? %>
+  <tr>
+    <td><%= task.name %></td>
+    <td><%= task.description %></td>
+    <td><%= task.status %></td>
+    <td><%= task.manage %></td>
+    <td><%= task.references %></td>
+    <td><%= link_to 'Show', [task.manage, task] %></td>
+    <td><%= link_to 'Edit', edit_manage_task_path(task.manage, task) %></td>
+    <td><%= link_to 'Destroy', [task.manage, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% end %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Task', new_manage_task_path(@manage.id) %>
